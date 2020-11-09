@@ -44,10 +44,15 @@ SELECT DISTINCT name, year, rating FROM movie LEFT OUTER JOIN movierating ON mov
 
 CREATE TABLE newmovie (id INT, name STRING, year INT, numratings INT, avgrating FLOAT);
 
+
 # Insert data from movie and movierating tables into newmovie table. Don't need to add any movies with no rating.
 
-
 INSERT OVERWRITE TABLE newmovie SELECT m.id, m.name, m.year, COUNT(1), AVG(mr.rating) FROM movie m, movierating mr WHERE m.id = mr.movieid GROUP BY m.id, m.name, m.year;
+
+
+# 10 highest rated movies by referring to the newmovie
+
+SELECT * FROM newmovie ORDER BY avgrating DESC LIMIT 10;
 
 
 
