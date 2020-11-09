@@ -29,6 +29,12 @@ sqoop import --connect jdbc:mysql://150.136.19.248/movielens --driver com.mysql.
 sqoop import --connect jdbc:mysql://150.136.19.248/movielens --driver com.mysql.jdbc.Driver --table moviegenre --fields-terminated-by '\t' --username hadoop --password cisbigdata --hive-import
 
 
+# Create movierating table with --hive-table option from user table of MYSQL DB
+
+sqoop import --connect jdbc:mysql://150.136.19.248/movielens --driver com.mysql.jdbc.Driver --table movierating --fields-terminated-by '\t' --username hadoop --password cisbigdata --hive-import
+
+
+
 
 
 
